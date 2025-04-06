@@ -1,2 +1,2 @@
 # Thumbs up
-Restores the thumb voting interface in logout panel
+Restores old thumb voting interface in logout panel

@@ -14,7 +14,7 @@ import net.runelite.client.callback.ClientThread;
 
 @Slf4j
 @PluginDescriptor(
-		name = "Thumbs Up"
+	name = "Thumbs Up"
 )
 public class ThumbsUpPlugin extends Plugin
 {
@@ -49,23 +49,34 @@ public class ThumbsUpPlugin extends Plugin
 	}
 
 	@Subscribe
-	public void onScriptPostFired(ScriptPostFired event) {
-		if (event.getScriptId() == SCRIPT_LOGOUT_LAYOUT_UPDATE) {
+	public void onScriptPostFired(ScriptPostFired event)
+	{
+		if (event.getScriptId() == SCRIPT_LOGOUT_LAYOUT_UPDATE)
+		{
 			replaceVoteUI();
 		}
 	}
 
 	private void cycleVoteUI(int shouldHideId, int shouldShowId, String text)
 	{
-		if (client.getWidget(InterfaceID.Logout.LOGOUT) == null) return;
+		if (client.getWidget(InterfaceID.Logout.LOGOUT) == null)
+		{
+			return;
+		}
 
 		Widget satisfactionText = client.getWidget(InterfaceID.Logout.SATISFACTION_TEXT);
-		if (satisfactionText == null) return;
+		if (satisfactionText == null)
+		{
+			return;
+		}
 		satisfactionText.setText(text);
 
 		Widget shouldHide = client.getWidget(shouldHideId);
 		Widget shouldShow = client.getWidget(shouldShowId);
-		if (shouldHide == null || shouldShow == null) return;
+		if (shouldHide == null || shouldShow == null)
+		{
+			return;
+		}
 		shouldHide.setHidden(true);
 		shouldShow.setHidden(false);
 	}
